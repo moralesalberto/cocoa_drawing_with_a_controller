@@ -39,8 +39,26 @@ And in the AppDelegate.m file I instantiate the controller and when I instantiat
 @end
 ```
 
-In the DrawingWindowController class, I create a custom constructor method called initWithWindow: like this. Do not forget to add the interface of this method in the DrawingViewController.h file. Notice that as I am instantiating the controller, I go ahead and instantiate the view and set the controller view to the custom DrawingView just instantiated. Also, since we have a reference to the App default window, we set the ContentView: of that window to be our view.
+In the DrawingWindowController class, I create a custom constructor method called initWithWindow: and add a property to hold a reference to the app delegate default
+window.
 
+
+``` objective-c
+#import <Cocoa/Cocoa.h>
+#import "DrawingView.h"
+
+@interface DrawingViewController : NSViewController
+
+@property NSWindow *window;
+
+-(id) initWithWindow:(NSWindow *) theWindow;
+
+@end
+```
+
+In the implementation file, notice that as I am instantiating the controller, I go ahead and instantiate the view as well and 
+set the controller view to the custom DrawingView just instantiated. Also, since we have a reference to the App default window, 
+we set the ContentView: of that window to be our view.
 
 ``` objective-c
 #import "DrawingViewController.h"
@@ -61,3 +79,4 @@ In the DrawingWindowController class, I create a custom constructor method calle
 So now we have the wiring set between the app delegate and our view and in between, we have our controller object that will orchestrate what to draw in the view.
 
 For this example, we will have a bouncing ball, bouncing around the window because when the ball hits one of the bounds of the window, the ball with reverse direction.
+

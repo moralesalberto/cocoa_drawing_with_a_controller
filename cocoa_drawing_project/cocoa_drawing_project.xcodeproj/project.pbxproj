@@ -18,6 +18,8 @@
 		B6AECBF91810A06A004187BE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AECBD81810A06A004187BE /* Cocoa.framework */; };
 		B6AECC011810A06A004187BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6AECBFF1810A06A004187BE /* InfoPlist.strings */; };
 		B6AECC031810A06A004187BE /* cocoa_drawing_projectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AECC021810A06A004187BE /* cocoa_drawing_projectTests.m */; };
+		B6AECC0E1810A0FC004187BE /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AECC0D1810A0FC004187BE /* DrawingViewController.m */; };
+		B6AECC111810A10E004187BE /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AECC101810A10E004187BE /* DrawingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,10 @@
 		B6AECBFE1810A06A004187BE /* cocoa_drawing_projectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "cocoa_drawing_projectTests-Info.plist"; sourceTree = "<group>"; };
 		B6AECC001810A06A004187BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B6AECC021810A06A004187BE /* cocoa_drawing_projectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cocoa_drawing_projectTests.m; sourceTree = "<group>"; };
+		B6AECC0C1810A0FC004187BE /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingViewController.h; path = ../DrawingViewController.h; sourceTree = "<group>"; };
+		B6AECC0D1810A0FC004187BE /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingViewController.m; path = ../DrawingViewController.m; sourceTree = "<group>"; };
+		B6AECC0F1810A10E004187BE /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingView.h; path = ../DrawingView.h; sourceTree = "<group>"; };
+		B6AECC101810A10E004187BE /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingView.m; path = ../DrawingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,10 @@
 		B6AECBDE1810A06A004187BE /* cocoa_drawing_project */ = {
 			isa = PBXGroup;
 			children = (
+				B6AECC0C1810A0FC004187BE /* DrawingViewController.h */,
+				B6AECC0D1810A0FC004187BE /* DrawingViewController.m */,
+				B6AECC0F1810A10E004187BE /* DrawingView.h */,
+				B6AECC101810A10E004187BE /* DrawingView.m */,
 				B6AECBEA1810A06A004187BE /* AppDelegate.h */,
 				B6AECBEB1810A06A004187BE /* AppDelegate.m */,
 				B6AECBED1810A06A004187BE /* MainMenu.xib */,
@@ -254,6 +264,8 @@
 			files = (
 				B6AECBEC1810A06A004187BE /* AppDelegate.m in Sources */,
 				B6AECBE51810A06A004187BE /* main.m in Sources */,
+				B6AECC0E1810A0FC004187BE /* DrawingViewController.m in Sources */,
+				B6AECC111810A10E004187BE /* DrawingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +476,7 @@
 				B6AECC081810A06A004187BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6AECC091810A06A004187BE /* Build configuration list for PBXNativeTarget "cocoa_drawing_projectTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +485,7 @@
 				B6AECC0B1810A06A004187BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
