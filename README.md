@@ -1,9 +1,8 @@
 Cocoa Drawing With A Controller
 ===============================
 
-This is a more involved cocoa drawing example. We need a controller class to control what gets drawn in the view.
-
-In this example we will draw a bouncing ball around the cocoa app default window.
+This is a more involved cocoa drawing example.  In this example we will draw a bouncing ball around the cocoa app default window.
+We need a controller class to control the movements of the ball drawn in the view.
 
 We start with a template cocoa app from XCode. Then we create a NSViewController class with New File -> Objective C class and inherit from NSViewController. Let's call the class DrawingViewController. We also will need an NSView custom class. So New File -> Objective C class -> inherit from NSView and call it DrawingView.
 
