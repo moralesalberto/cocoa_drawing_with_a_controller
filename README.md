@@ -9,7 +9,7 @@ We start with a template cocoa app from XCode. Then we create a NSViewController
 
 I am not sure how to get a handle to the window from the controller, so I will create an NSWindow property on my controller and will have a custom init method that will get the window from the AppDelegate.m file.
 
-In the AppDelegate.h file I add the window property:
+In the AppDelegate.h file I add the custom DrawingViewController property:
 ``` objective-c
 #import <Cocoa/Cocoa.h>
 
@@ -25,7 +25,7 @@ In the AppDelegate.h file I add the window property:
 @end
 ```
 
-And in the AppDelegate.m file I instantiate the controller and pass a reference to the application default window.
+And in the AppDelegate.m file I instantiate the controller and when I instantiate the controller, I pass a reference to the application default window.
 
 ``` objective-c
 #import "AppDelegate.h"
