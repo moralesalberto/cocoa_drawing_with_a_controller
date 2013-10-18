@@ -21,6 +21,7 @@
 		B6AECC031810A06A004187BE /* cocoa_drawing_projectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AECC021810A06A004187BE /* cocoa_drawing_projectTests.m */; };
 		B6AECC0E1810A0FC004187BE /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AECC0D1810A0FC004187BE /* DrawingViewController.m */; };
 		B6AECC111810A10E004187BE /* DrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AECC101810A10E004187BE /* DrawingView.m */; };
+		B6D972AB18114C97007F5841 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D972AA18114C97007F5841 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B6AECC0D1810A0FC004187BE /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingViewController.m; path = ../DrawingViewController.m; sourceTree = "<group>"; };
 		B6AECC0F1810A10E004187BE /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingView.h; path = ../DrawingView.h; sourceTree = "<group>"; };
 		B6AECC101810A10E004187BE /* DrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DrawingView.m; path = ../DrawingView.m; sourceTree = "<group>"; };
+		B6D972AA18114C97007F5841 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D972AB18114C97007F5841 /* QuartzCore.framework in Frameworks */,
 				B6AECBD91810A06A004187BE /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +107,7 @@
 		B6AECBD71810A06A004187BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6D972AA18114C97007F5841 /* QuartzCore.framework */,
 				B6AECBD81810A06A004187BE /* Cocoa.framework */,
 				B6AECBF71810A06A004187BE /* XCTest.framework */,
 				B6AECBDA1810A06A004187BE /* Other Frameworks */,

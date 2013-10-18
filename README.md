@@ -196,5 +196,5 @@ call the draw method from the ball object.
 ```
 
 Now if everything is working for you, you should have a blue filled ball inside of your window. Next step will
-to make the ball bounce around the window.
+be to make the ball bounce around the window.
 

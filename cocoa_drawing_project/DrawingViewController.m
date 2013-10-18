@@ -13,15 +13,21 @@
 -(id) initWithWindow:(NSWindow *) theWindow {
     self = [super init];
     self.window = theWindow;
-    [self setView:[[DrawingView alloc] initWithFrame:self.window.frame]];
+    self.drawingView = [[DrawingView alloc] initWithFrame:self.window.frame];
+    [self setView:self.drawingView];
     [self.window setContentView:self.view];
     [self animateBall];
     return self;
 }
 
 -(void) animateBall {
-    //start a timer
-    //timer will call a method called [ball move]
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.20 target:self selector:@selector(moveBall:) userInfo:nil repeats:YES];
+}
+
+
+- (void)moveBall:(NSTimer *)timer {
+    [self.drawingView.ball move];
+    [self.drawingView setNeedsDisplay:YES];
 }
 
 @end
