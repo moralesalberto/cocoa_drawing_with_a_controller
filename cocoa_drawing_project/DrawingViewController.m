@@ -18,4 +18,8 @@
     return self;
 }
 
+-(void) moveBallLocation {
+    
+}
+
 @end

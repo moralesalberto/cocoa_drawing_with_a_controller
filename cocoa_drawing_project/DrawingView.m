@@ -10,4 +10,19 @@
 
 @implementation DrawingView
 
+
+
+-(id) initWithFrame:(NSRect)frameRect {
+    self = [super initWithFrame:frameRect];
+    self.ball = [[Ball alloc] initWithInitialLocation:frameRect.origin insideOfFrame:frameRect];
+    return self;
+}
+
+
+-(void) drawRect:(NSRect)dirtyRect {
+    [self.ball adjustBallBasedOnWindowFrame:dirtyRect];
+    [self.ball draw];
+}
+
+
 @end

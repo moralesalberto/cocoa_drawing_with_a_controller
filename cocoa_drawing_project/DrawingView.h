@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Ball.h"
 
 @interface DrawingView : NSView
+
+
+
+@property Ball *ball;
 
 @end
