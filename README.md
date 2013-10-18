@@ -83,3 +83,118 @@ orchestrate what to draw in the view. For this example, we will have a bouncing 
 when the ball hits one of the bounds of the window, the ball with reverse direction and maybe change color; let's see how
 make it fun. Also, to allow for resizing, the diameter of the ball should be proportional to the size of the window.
 
+
+### Drawing the Ball
+
+The ball will be proportional to the window height. So when the window is resized, the ball will adjust in size. So when
+the ball is initialized, the size of the ball has to be adjusted. The init method looks like this:
+
+``` objectic-c
+-(id) initWithInitialLocation:(CGPoint)initialPoint insideOfFrame:(NSRect)initialWindowFrame {
+    self = [super init];
+    self.startPoint = initialPoint;
+    [self adjustBallBasedOnWindowFrame:initialWindowFrame];
+    return self;
+```
+
+The adjust method and its helper methods looks like this:
+
+``` objective-c
+
+-(void) adjustBallBasedOnWindowFrame: (NSRect) windowFrame {
+    [self adjustDiameterBasedOnWindowFrame:windowFrame];
+    [self adjustStartPointBasedOnWindowFrame:windowFrame];
+    self.frame = CGRectMake(self.startPoint.x, self.startPoint.y, self.diameter, self.diameter);
+}
+
+const double N_TIMES_SMALLER_THAN_WINDOW_HEIGHT = 20;
+
+-(void) adjustDiameterBasedOnWindowFrame: (NSRect) windowFrame {
+    self.diameter = windowFrame.size.height / N_TIMES_SMALLER_THAN_WINDOW_HEIGHT;
+}
+
+-(void) adjustStartPointBasedOnWindowFrame: (NSRect) windowFrame {
+    if (self.startPoint.x < 0) {
+        self.startPoint = CGPointMake(0, self.startPoint.y);
+    }
+    
+    if (self.startPoint.y < 0) {
+        self.startPoint = CGPointMake(self.startPoint.x, 0);
+    }
+    
+    double rightEdgeWindow = windowFrame.origin.x+windowFrame.size.width;
+    double rightEdgeBall = self.startPoint.x + self.diameter;
+    if (rightEdgeBall > rightEdgeWindow) {
+        self.startPoint = CGPointMake((rightEdgeWindow-self.diameter), self.startPoint.y);
+    }
+    
+    double bottomEdgeWindow = windowFrame.origin.y+windowFrame.size.height;
+    double bottomEdgeBall = self.startPoint.y + self.diameter;
+    if (bottomEdgeBall > bottomEdgeWindow) {
+        self.startPoint = CGPointMake(self.startPoint.x, (bottomEdgeWindow-self.diameter));
+    }
+}
+```
+
+Finally, to draw the actual ball, we have a draw method that can be called from the view. The method looks like this:
+
+``` objective-c
+-(void) draw {
+    [[NSColor blueColor] set];
+    [self drawAndFillCircleInsideofFrame];
+}
+
+-(void) drawAndFillCircleInsideofFrame {
+    NSBezierPath* thePath = [NSBezierPath bezierPath];
+    [thePath appendBezierPathWithOvalInRect:self.frame];
+    [thePath fill];
+}
+```
+
+The interface for the ball class looks like this:
+
+``` objective-c
+#import <Foundation/Foundation.h>
+
+@interface Ball : NSObject
+
+extern const double N_TIMES_SMALLER_THAN_WINDOW_HEIGHT;
+
+@property CGPoint startPoint;
+@property double diameter;
+@property NSRect frame;
+
+-(id) initWithInitialLocation:(CGPoint) initialPoint insideOfFrame: (NSRect) initialWindowFrame;
+
+-(void) adjustBallBasedOnWindowFrame: (NSRect) frame;
+
+-(void) draw;
+
+@end
+```
+
+Finally in the drawing view, the implementation file looks like this. We implement the drawRect method that will in turn
+call the draw method from the ball object.
+
+``` objective-c
+#import "DrawingView.h"
+
+@implementation DrawingView
+
+-(id) initWithFrame:(NSRect)frameRect {
+    self = [super initWithFrame:frameRect];
+    self.ball = [[Ball alloc] initWithInitialLocation:frameRect.origin insideOfFrame:frameRect];
+    return self;
+}
+
+-(void) drawRect:(NSRect)dirtyRect {
+    [self.ball adjustBallBasedOnWindowFrame:dirtyRect];
+    [self.ball draw];
+}
+
+@end
+```
+
+Now if everything is working for you, you should have a blue filled ball inside of your window. Next step will
+to make the ball bounce around the window.
+

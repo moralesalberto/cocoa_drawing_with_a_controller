@@ -15,11 +15,13 @@
     self.window = theWindow;
     [self setView:[[DrawingView alloc] initWithFrame:self.window.frame]];
     [self.window setContentView:self.view];
+    [self animateBall];
     return self;
 }
 
--(void) moveBallLocation {
-    
+-(void) animateBall {
+    //start a timer
+    //timer will call a method called [ball move]
 }
 
 @end

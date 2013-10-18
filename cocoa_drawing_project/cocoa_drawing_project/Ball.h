@@ -10,7 +10,7 @@
 
 @interface Ball : NSObject
 
-extern const double DIAMETER_TO_WINDOW_WIDTH_RATIO;
+extern const double N_TIMES_SMALLER_THAN_WINDOW_HEIGHT;
 
 @property CGPoint startPoint;
 @property double diameter;

@@ -10,7 +10,6 @@
 
 @implementation Ball
 
-const double DIAMETER_TO_WINDOW_WIDTH_RATIO = 20;
 
 -(id) initWithInitialLocation:(CGPoint)initialPoint insideOfFrame:(NSRect)initialWindowFrame {
     self = [super init];
@@ -25,8 +24,10 @@ const double DIAMETER_TO_WINDOW_WIDTH_RATIO = 20;
     self.frame = CGRectMake(self.startPoint.x, self.startPoint.y, self.diameter, self.diameter);
 }
 
+const double N_TIMES_SMALLER_THAN_WINDOW_HEIGHT = 20;
+
 -(void) adjustDiameterBasedOnWindowFrame: (NSRect) windowFrame {
-    self.diameter = windowFrame.size.height / DIAMETER_TO_WINDOW_WIDTH_RATIO;
+    self.diameter = windowFrame.size.height / N_TIMES_SMALLER_THAN_WINDOW_HEIGHT;
 }
 
 -(void) adjustStartPointBasedOnWindowFrame: (NSRect) windowFrame {
@@ -52,9 +53,14 @@ const double DIAMETER_TO_WINDOW_WIDTH_RATIO = 20;
 }
 
 -(void) draw {
-    [[NSColor greenColor] set];
-    NSRectFill(self.frame);
-    [NSBezierPath strokeRect:self.frame];
+    [[NSColor blueColor] set];
+    [self drawAndFillCircleInsideofFrame];
+}
+
+-(void) drawAndFillCircleInsideofFrame {
+    NSBezierPath* thePath = [NSBezierPath bezierPath];
+    [thePath appendBezierPathWithOvalInRect:self.frame];
+    [thePath fill];
 }
 
 
